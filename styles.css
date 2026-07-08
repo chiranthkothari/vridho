@@ -54,7 +54,9 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  /* clip (not hidden): prevents horizontal scroll WITHOUT making body a
+     scroll container, which would break the sticky nav on mobile */
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4 {
@@ -202,7 +204,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ============================================================
    NAV
    ============================================================ */
-.nav { position: sticky; top: 0; z-index: 100; padding-top: 16px; }
+.nav { position: sticky; top: 0; z-index: 100; padding-top: calc(16px + env(safe-area-inset-top, 0px)); }
 .nav__inner {
   max-width: 940px; margin-inline: auto;
   display: flex; align-items: center; justify-content: space-between; gap: 20px;
