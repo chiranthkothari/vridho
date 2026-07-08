@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vridho — See everything you own, in one private view</title>
+  <meta name="description" content="Track Indian and global stocks, mutual funds, NPS, gold bonds and deposits on one read-only dashboard. We can read your holdings. We can never touch them. Free." />
+  <meta name="theme-color" content="#0C0B0A" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:title" content="Vridho — See everything you own, in one private view" />
+  <meta property="og:description" content="One read-only dashboard for your whole net worth. No broker login. No PAN. It can never place a trade." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- top-of-page ambient glow, sits behind the floating nav and the hero -->
+  <div class="page-glow" aria-hidden="true"></div>
+
+  <!-- ambient cursor spotlight + ring follower (fine-pointer, motion-safe only) -->
+  <div class="cursor-spotlight" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ================= NAV ================= -->
+  <header class="nav" id="nav">
+    <div class="shell">
+     <div class="nav__inner">
+      <a class="brand" href="#main" data-magnetic aria-label="Vridho home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg class="brand__logo" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M16 42 28 30 36 36 48 20" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="48" cy="20" r="4.2" fill="currentColor"/></svg>
+        </span>
+        <span class="brand__word">Vridho</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#coverage">Coverage</a>
+        <a href="#intelligence">Intelligence</a>
+        <a href="#tax">Tax</a>
+        <a href="#security">Security</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="link-quiet" href="https://vridho.com/login">Sign in</a>
+        <a class="btn btn--primary btn--sm" href="https://vridho.com/register" data-magnetic>
+          Start free
+        </a>
+      </div>
+     </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="shell hero__grid">
+        <div class="hero__copy">
+          <span class="pill reveal" data-reveal>
+            <span class="pill__dot" aria-hidden="true"></span>
+            Read-only. No broker login.
+          </span>
+
+          <h1 class="hero__title reveal" data-reveal>
+            Everything you own,
+            <span class="accent-word">in one private view.</span>
+          </h1>
+
+          <p class="hero__lede reveal" data-reveal>
+            Indian and global stocks, mutual funds, NPS, gold bonds and deposits
+            on a single dashboard. It reads your holdings. It can never touch them.
+          </p>
+
+          <div class="hero__cta reveal" data-reveal>
+            <a class="btn btn--primary" href="https://vridho.com/register" data-magnetic>
+              Start free
+              <i class="ph ph-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn--ghost" href="#security" data-magnetic>
+              How your data is protected
+            </a>
+          </div>
+
+          <ul class="hero__trust reveal" data-reveal>
+            <li><i class="ph ph-lock-key" aria-hidden="true"></i> Cannot trade or move money</li>
+            <li><i class="ph ph-user-circle-minus" aria-hidden="true"></i> No PAN or bank details</li>
+            <li><i class="ph ph-eye-slash" aria-hidden="true"></i> Only you see your data</li>
+          </ul>
+        </div>
+
+        <div class="hero__art reveal" data-reveal data-tilt>
+          <figure class="window">
+            <div class="window__bar">
+              <span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="window__url">vridho.com / portfolio</span>
+            </div>
+            <img
+              src="assets/product/portfolio.png"
+              alt="Vridho portfolio view showing invested value, current value, returns, day change and portfolio XIRR with sector allocation"
+              width="3360" height="1758" loading="eager" decoding="async" />
+          </figure>
+          <div class="hero__badge" aria-hidden="true">
+            <i class="ph-fill ph-shield-check"></i>
+            <div>
+              <strong>Read-only</strong>
+              <span>No order path exists</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MARKET TAPE ================= -->
+    <section class="tape" aria-label="Market snapshot">
+      <div class="shell">
+        <div class="tape__head">
+          <span class="tape__label">
+            <span class="live-dot" aria-hidden="true"></span> Live market
+          </span>
+          <a class="link-quiet" href="https://vridho.com/market">Full market stream <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+        </div>
+
+        <div class="tape__grid">
+          <div class="quote" data-reveal>
+            <span class="quote__name">NIFTY 50</span>
+            <span class="quote__price" data-count="24255.90" data-decimals="2" data-prefix="₹">₹24,255.90</span>
+            <span class="quote__chg down"><i class="ph ph-caret-down" aria-hidden="true"></i> 0.59%</span>
+          </div>
+          <div class="quote" data-reveal>
+            <span class="quote__name">S&amp;P 500</span>
+            <span class="quote__price" data-count="7503.85" data-decimals="2" data-prefix="$">$7,503.85</span>
+            <span class="quote__chg down"><i class="ph ph-caret-down" aria-hidden="true"></i> 0.45%</span>
+          </div>
+          <div class="quote" data-reveal>
+            <span class="quote__name">BANK NIFTY</span>
+            <span class="quote__price" data-count="57918.40" data-decimals="2" data-prefix="₹">₹57,918.40</span>
+            <span class="quote__chg down"><i class="ph ph-caret-down" aria-hidden="true"></i> 0.49%</span>
+          </div>
+          <div class="quote" data-reveal>
+            <span class="quote__name">NASDAQ</span>
+            <span class="quote__price" data-count="25818.69" data-decimals="2" data-prefix="$">$25,818.69</span>
+            <span class="quote__chg down"><i class="ph ph-caret-down" aria-hidden="true"></i> 1.16%</span>
+          </div>
+        </div>
+        <p class="tape__note">NSE, BSE and global indices on a licensed feed. Values shown are illustrative.</p>
+      </div>
+    </section>
+
+    <!-- ================= READ-ONLY / TRUST ================= -->
+    <section class="section trust" id="how">
+      <div class="shell">
+        <div class="section__head">
+          <span class="eyebrow" data-reveal>How it works</span>
+          <h2 class="section__title" data-reveal>You share holdings, not access.</h2>
+          <p class="section__lede" data-reveal>
+            You type or upload what you own. Vridho values it live and keeps it private.
+            There is no order, transfer or withdrawal path anywhere in the product.
+          </p>
+        </div>
+
+        <div class="compare">
+          <article class="panel panel--ask card" data-reveal>
+            <header class="panel__head">
+              <i class="ph ph-check-circle" aria-hidden="true"></i>
+              <h3>What we ask for</h3>
+            </header>
+            <ul class="panel__list">
+              <li>The holdings you enter or upload: ticker, units, average price</li>
+              <li>An optional first-invested date, only to compute XIRR</li>
+              <li>Your name and email to keep the account private to you</li>
+            </ul>
+          </article>
+
+          <article class="panel panel--never card" data-reveal>
+            <header class="panel__head">
+              <i class="ph ph-prohibit" aria-hidden="true"></i>
+              <h3>What we never ask for</h3>
+            </header>
+            <ul class="panel__list panel__list--never">
+              <li>PAN or Aadhaar</li>
+              <li>Bank account or IFSC</li>
+              <li>Demat or BO number</li>
+              <li>Broker login or password</li>
+              <li>Income-tax portal login</li>
+            </ul>
+          </article>
+        </div>
+        <p class="trust__note" data-reveal>
+          The only market feed is app-level data, never a link to your account.
+          You never connect a brokerage.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= ASSET MARQUEE ================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Indian Equity</span><i>/</i><span>US &amp; Global</span><i>/</i><span>Mutual Funds</span><i>/</i>
+        <span>NPS</span><i>/</i><span>PPF</span><i>/</i><span>EPF</span><i>/</i><span>Sovereign Gold Bonds</span><i>/</i>
+        <span>Fixed Deposits</span><i>/</i><span>Options</span><i>/</i><span>Volatility</span><i>/</i><span>IPO Tracker</span><i>/</i>
+        <span>eCAS Reconcile</span><i>/</i><span>Stock Screener</span><i>/</i><span>Tax Centre</span><i>/</i>
+        <span>Market Mood</span><i>/</i><span>Sector Rotation</span><i>/</i><span>FII / DII Flows</span><i>/</i>
+        <span>Indian Equity</span><i>/</i><span>US &amp; Global</span><i>/</i><span>Mutual Funds</span><i>/</i>
+        <span>NPS</span><i>/</i><span>PPF</span><i>/</i><span>EPF</span><i>/</i><span>Sovereign Gold Bonds</span><i>/</i>
+        <span>Fixed Deposits</span><i>/</i><span>Options</span><i>/</i><span>Volatility</span><i>/</i><span>IPO Tracker</span><i>/</i>
+        <span>eCAS Reconcile</span><i>/</i><span>Stock Screener</span><i>/</i><span>Tax Centre</span><i>/</i>
+        <span>Market Mood</span><i>/</i><span>Sector Rotation</span><i>/</i><span>FII / DII Flows</span><i>/</i>
+      </div>
+    </div>
+
+    <!-- ================= COVERAGE (BENTO) ================= -->
+    <section class="section coverage" id="coverage">
+      <div class="shell">
+        <div class="section__head">
+          <h2 class="section__title" data-reveal>Every position, one number.</h2>
+          <p class="section__lede" data-reveal>
+            Equities, funds, retirement, gold and deposits reconcile into a single net-worth
+            record. Holdings enter only by what you type or upload, never by a broker pull.
+          </p>
+        </div>
+
+        <div class="bento">
+          <a class="bento__cell bento__cell--hero card" href="https://vridho.com/register" data-reveal>
+            <i class="ph ph-wallet bento__icon" aria-hidden="true"></i>
+            <h3>Net worth</h3>
+            <p>One figure for everything you own, updated live across every asset class below.</p>
+            <span class="bento__cta">Open the dashboard <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+          </a>
+
+          <a class="bento__cell card" href="https://vridho.com/register" data-reveal>
+            <i class="ph ph-chart-bar bento__icon" aria-hidden="true"></i>
+            <h3>Indian equity</h3>
+            <p>Every NSE and BSE holding live, with P&amp;L, allocation and day change.</p>
+          </a>
+
+          <a class="bento__cell card" href="https://vridho.com/register" data-reveal>
+            <i class="ph ph-globe-hemisphere-west bento__icon" aria-hidden="true"></i>
+            <h3>US &amp; global</h3>
+            <p>Global stocks beside your Indian book, with live FX and DTAA tax context.</p>
+          </a>
+
+          <a class="bento__cell card" href="https://vridho.com/register" data-reveal>
+            <i class="ph ph-chart-pie-slice bento__icon" aria-hidden="true"></i>
+            <h3>Mutual funds</h3>
+            <p>Every fund and SIP on NAV valuation, with category and health signals.</p>
+          </a>
+
+          <a class="bento__cell card" href="https://vridho.com/register" data-reveal>
+            <i class="ph ph-piggy-bank bento__icon" aria-hidden="true"></i>
+            <h3>Retirement</h3>
+            <p>NPS, PPF and EPF with interest accrual and the taxable-interest split.</p>
+          </a>
+
+          <a class="bento__cell card" href="https://vridho.com/register" data-reveal>
+            <i class="ph ph-coins bento__icon" aria-hidden="true"></i>
+            <h3>Gold &amp; deposits</h3>
+            <p>Sovereign gold bonds and fixed deposits, folded into net worth.</p>
+          </a>
+
+          <a class="bento__cell card" href="https://vridho.com/register" data-reveal>
+            <i class="ph ph-plus-circle bento__icon" aria-hidden="true"></i>
+            <h3>Anything else</h3>
+            <p>Add assets no aggregator sees. They flow straight into your net worth.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MARKET, READ LIVE ================= -->
+    <section class="section market" id="market">
+      <div class="shell">
+        <div class="section__head">
+          <h2 class="section__title" data-reveal>The market, read live.</h2>
+          <p class="section__lede" data-reveal>
+            Nifty, Sensex, Bank Nifty and global indices on a licensed exchange feed.
+            Plus market mood, sector heatmaps, sector rotation and FII / DII flows.
+          </p>
+        </div>
+
+        <div class="market__grid">
+          <article class="market__mood card" data-reveal>
+            <div class="mood__top">
+              <span class="mood__label">Market mood</span>
+              <span class="mood__score">64 <em>Greed</em></span>
+            </div>
+            <div class="mood__gauge" aria-hidden="true"><span class="mood__fill"></span></div>
+            <div class="mood__scale" aria-hidden="true">
+              <span>Extreme fear</span><span>Neutral</span><span>Extreme greed</span>
+            </div>
+            <p class="mood__note">A single read on breadth, momentum and volatility. Illustrative value.</p>
+          </article>
+
+          <div class="market__links">
+            <a class="market__link" href="https://vridho.com/heatmap" data-reveal>
+              <i class="ph ph-squares-four" aria-hidden="true"></i>
+              <div><h3>Sector heatmap</h3><p>Green and red across every sector at a glance.</p></div>
+              <i class="ph ph-arrow-up-right market__arrow" aria-hidden="true"></i>
+            </a>
+            <a class="market__link" href="https://vridho.com/sector-rotation" data-reveal>
+              <i class="ph ph-arrows-clockwise" aria-hidden="true"></i>
+              <div><h3>Sector rotation</h3><p>Where money is moving between sectors.</p></div>
+              <i class="ph ph-arrow-up-right market__arrow" aria-hidden="true"></i>
+            </a>
+            <a class="market__link" href="https://vridho.com/market" data-reveal>
+              <i class="ph ph-bank" aria-hidden="true"></i>
+              <div><h3>FII / DII flows</h3><p>Daily institutional buying and selling.</p></div>
+              <i class="ph ph-arrow-up-right market__arrow" aria-hidden="true"></i>
+            </a>
+            <a class="market__link" href="https://vridho.com/explore" data-reveal>
+              <i class="ph ph-compass" aria-hidden="true"></i>
+              <div><h3>Explore movers</h3><p>The day's gainers, losers and most active.</p></div>
+              <i class="ph ph-arrow-up-right market__arrow" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INTELLIGENCE ================= -->
+    <section class="section intel" id="intelligence">
+      <div class="shell">
+        <div class="section__head">
+          <span class="eyebrow" data-reveal>Intelligence</span>
+          <h2 class="section__title" data-reveal>Understood, not just stored.</h2>
+          <p class="section__lede" data-reveal>
+            Analytics built on disclosed metrics across your whole book. Vridho explains
+            your positions. It never gives a buy or sell call.
+          </p>
+        </div>
+
+        <div class="intel__group" data-reveal>
+          <span class="intel__label">Analytics &amp; scoring</span>
+          <div class="features">
+            <div class="feature" data-reveal>
+              <i class="ph ph-chart-line-up" aria-hidden="true"></i>
+              <div>
+                <h3>Portfolio analytics</h3>
+                <p>Realised and unrealised P&amp;L, the full transaction ledger and concentration risk.</p>
+              </div>
+            </div>
+            <div class="feature" data-reveal>
+              <i class="ph ph-gauge" aria-hidden="true"></i>
+              <div>
+                <h3>Portfolio score</h3>
+                <p>Diversification, risk and quality scored on disclosed factors.</p>
+              </div>
+            </div>
+            <div class="feature" data-reveal>
+              <i class="ph ph-ranking" aria-hidden="true"></i>
+              <div>
+                <h3>Quantitative stock scoring</h3>
+                <p>A composite multi-factor screen on disclosed metrics, never a buy or sell call.</p>
+              </div>
+            </div>
+            <div class="feature" data-reveal>
+              <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+              <div>
+                <h3>Screener &amp; watchlist</h3>
+                <p>Savable screens and a live watchlist that feeds the terminal.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="intel__group" data-reveal>
+          <span class="intel__label">Options &amp; volatility</span>
+          <div class="features">
+            <div class="feature" data-reveal>
+              <i class="ph ph-function" aria-hidden="true"></i>
+              <div>
+                <h3>Options analytics board</h3>
+                <p>Live chain, PCR, max-pain, OI distribution and expected move.</p>
+              </div>
+            </div>
+            <div class="feature" data-reveal>
+              <i class="ph ph-wave-sine" aria-hidden="true"></i>
+              <div>
+                <h3>Volatility intelligence</h3>
+                <p>IV-rank, term structure and a historical volatility cone, presented factually.</p>
+              </div>
+            </div>
+            <div class="feature" data-reveal>
+              <i class="ph ph-crosshair" aria-hidden="true"></i>
+              <div>
+                <h3>Option lookup</h3>
+                <p>Look up any contract with live Greeks and pricing.</p>
+              </div>
+            </div>
+            <div class="feature" data-reveal>
+              <i class="ph ph-arrows-out-line-vertical" aria-hidden="true"></i>
+              <div>
+                <h3>Straddle analytics</h3>
+                <p>Expected move and payoff for indices and equities.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="intel__group" data-reveal>
+          <span class="intel__label">Reconcile &amp; research</span>
+          <div class="features">
+            <div class="feature" data-reveal>
+              <i class="ph ph-file-text" aria-hidden="true"></i>
+              <div>
+                <h3>eCAS reconciliation</h3>
+                <p>Drop a CDSL or NSDL statement and reconcile events against your ledger. Password and contents never logged.</p>
+              </div>
+            </div>
+            <div class="feature" data-reveal>
+              <i class="ph ph-rocket-launch" aria-hidden="true"></i>
+              <div>
+                <h3>IPO tracker</h3>
+                <p>GMP, day-by-day subscription, RHP insights, financials, peers and the anchor book.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INSIDE THE TERMINAL ================= -->
+    <section class="section showcase">
+      <div class="shell">
+        <div class="section__head section__head--center">
+          <h2 class="section__title" data-reveal>Inside the terminal.</h2>
+          <p class="section__lede" data-reveal>
+            A single desk for your whole book: live holdings, benchmarking against the
+            Nifty 50 TRI, a portfolio score and a dividend forecast. Shown with a sample portfolio.
+          </p>
+        </div>
+
+        <div class="shots">
+          <figure class="shot" data-reveal data-tilt>
+            <div class="window window--wide">
+              <div class="window__bar">
+                <span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="window__url">vridho.com / dashboard</span>
+              </div>
+              <img
+                src="assets/product/dashboard.png"
+                alt="Vridho dashboard showing invested value, current value, returns, XIRR and sector allocation"
+                width="2944" height="694" loading="lazy" decoding="async" />
+            </div>
+            <figcaption>Invested and current value, returns, XIRR and sector allocation.</figcaption>
+          </figure>
+
+          <figure class="shot" data-reveal>
+            <div class="window window--tall">
+              <div class="window__bar">
+                <span class="window__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="window__url">vridho.com / intelligence</span>
+              </div>
+              <img
+                src="assets/product/intelligence.png"
+                alt="Vridho intelligence view showing portfolio score, market mood, risk and quality, and a dividend forecast"
+                width="2944" height="3056" loading="lazy" decoding="async" />
+            </div>
+            <figcaption>Portfolio score, market mood, risk and quality, and a dividend forecast.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAX CENTRE ================= -->
+    <section class="section tax" id="tax">
+      <div class="shell">
+        <div class="section__head">
+          <span class="eyebrow" data-reveal>Tax centre</span>
+          <h2 class="section__title" data-reveal>Your tax picture, computed live.</h2>
+          <p class="section__lede" data-reveal>
+            Capital gains, dividends, interest and salary in one place, calculated from your
+            real numbers and stored nowhere. It records on your ledger and places no trade.
+          </p>
+        </div>
+
+        <ul class="tax__list">
+          <li class="card" data-reveal>
+            <h3>All heads, one view</h3>
+            <p>Capital gains, dividends, interest and salary-inclusive computation, live.</p>
+          </li>
+          <li class="card" data-reveal>
+            <h3>Tax-loss harvesting</h3>
+            <p>Realised and projected gains, harvested in one click against the remaining ₹1.25L §112A exemption.</p>
+          </li>
+          <li class="card" data-reveal>
+            <h3>Loss carry-forward §74</h3>
+            <p>STCL and LTCL across 8 assessment years, with the §70 and §71 set-off waterfall.</p>
+          </li>
+          <li class="card" data-reveal>
+            <h3>Reinvestment exemptions</h3>
+            <p>§54, §54F and §54EC calculators to size your capital-gains exemption.</p>
+          </li>
+          <li class="card" data-reveal>
+            <h3>Old vs new regime</h3>
+            <p>The optimizer picks the cheaper regime from your actual figures.</p>
+          </li>
+          <li class="card" data-reveal>
+            <h3>80C &amp; advance tax</h3>
+            <p>80C consolidation and an advance-tax schedule with §234B and §234C nudges.</p>
+          </li>
+          <li class="card" data-reveal>
+            <h3>Filing-ready report</h3>
+            <p>A Schedule-CG dossier and CA-grade ITR report for both regimes, as a password-protected PDF.</p>
+          </li>
+          <li class="card" data-reveal>
+            <h3>Form 16 · AIS · 26AS</h3>
+            <p>Import to derive your figures on consent. They are discarded after, and your PAN is never stored.</p>
+          </li>
+        </ul>
+
+        <a class="btn btn--ghost tax__cta" href="https://vridho.com/register" data-magnetic>
+          Explore the tax centre <i class="ph ph-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= SECURITY ================= -->
+    <section class="section security" id="security">
+      <div class="shell">
+        <div class="section__head">
+          <span class="eyebrow" data-reveal>Security</span>
+          <h2 class="section__title" data-reveal>Nothing to leak. Nothing to trade.</h2>
+          <p class="section__lede" data-reveal>
+            The safest account is one that holds little and can do nothing. Vridho is built that way.
+          </p>
+        </div>
+
+        <ul class="secgrid">
+          <li data-reveal><i class="ph ph-lock-key" aria-hidden="true"></i>
+            <div><h3>Read-only by design</h3><p>It can never place a trade, transfer or withdrawal.</p></div>
+          </li>
+          <li data-reveal><i class="ph ph-user-circle-minus" aria-hidden="true"></i>
+            <div><h3>No sensitive identity</h3><p>No PAN, Aadhaar, bank, demat or broker login, ever.</p></div>
+          </li>
+          <li data-reveal><i class="ph ph-shield-check" aria-hidden="true"></i>
+            <div><h3>Encrypted and isolated</h3><p>Your details are encrypted and sealed off from every other user.</p></div>
+          </li>
+          <li data-reveal><i class="ph ph-key" aria-hidden="true"></i>
+            <div><h3>Code at every sign-in</h3><p>A one-time code each time, an optional authenticator app, and one active session at a time.</p></div>
+          </li>
+          <li data-reveal><i class="ph ph-map-pin" aria-hidden="true"></i>
+            <div><h3>Hosted in India</h3><p>Run from Mumbai on Oracle Cloud, on an encrypted connection.</p></div>
+          </li>
+          <li data-reveal><i class="ph ph-trash" aria-hidden="true"></i>
+            <div><h3>Export and delete</h3><p>One-click export, and a hard delete with a 72-hour cancel window.</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= FINAL CTA ================= -->
+    <section class="section cta">
+      <div class="shell cta__inner">
+        <div class="cta__aura" aria-hidden="true"></div>
+        <h2 class="cta__title" data-reveal>Open a dashboard that reads everything.</h2>
+        <p class="cta__lede" data-reveal>
+          Indian and global equities, mutual funds, NPS, gold bonds and deposits.
+          One private, read-only view. Fully free, no tiers.
+        </p>
+        <div class="cta__actions" data-reveal>
+          <a class="btn btn--primary btn--lg" href="https://vridho.com/register" data-magnetic>
+            Create your free account
+            <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          </a>
+          <a class="link-quiet" href="https://vridho.com/login">Sign in</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="shell footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="#main" aria-label="Vridho home">
+          <span class="brand__mark" aria-hidden="true"><svg class="brand__logo" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M16 42 28 30 36 36 48 20" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="48" cy="20" r="4.2" fill="currentColor"/></svg></span>
+          <span class="brand__word">Vridho</span>
+        </a>
+        <p>A private, read-only view of everything you own. It reads your holdings and can never touch them.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Product">
+        <h4>Product</h4>
+        <a href="#coverage">Coverage</a>
+        <a href="#intelligence">Intelligence</a>
+        <a href="#tax">Tax centre</a>
+        <a href="https://vridho.com/market">Market</a>
+      </nav>
+
+      <nav class="footer__col" aria-label="Trust">
+        <h4>Trust</h4>
+        <a href="#security">Security</a>
+        <a href="https://vridho.com/security">Security posture</a>
+        <a href="https://vridho.com/privacy">Privacy &amp; data rights</a>
+        <a href="https://vridho.com/terms">Terms</a>
+      </nav>
+
+      <div class="footer__col footer__cta">
+        <h4>Get started</h4>
+        <a class="btn btn--primary btn--sm" href="https://vridho.com/register" data-magnetic>Start free</a>
+        <a class="link-quiet" href="https://vridho.com/login">Sign in</a>
+      </div>
+    </div>
+
+    <div class="shell footer__base">
+      <span>© 2026 Vridho. Read-only wealth monitoring.</span>
+      <span class="footer__tag">Reads everything. Touches nothing.</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
