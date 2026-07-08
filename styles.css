@@ -96,6 +96,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .cursor-spotlight, .cursor-ring, .cursor-dot { display: none; }
 
 @media (hover: hover) and (pointer: fine) {
+  /* hide the native cursor once the custom one is active */
+  body.cursor-on, body.cursor-on * { cursor: none !important; }
+
   /* soft ambient glow, tracks 1:1 */
   body.cursor-on .cursor-spotlight {
     display: block; position: fixed; z-index: 2; top: 0; left: 0;
