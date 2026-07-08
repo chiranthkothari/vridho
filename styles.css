@@ -480,6 +480,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: linear-gradient(165deg, rgba(233,183,100,.10), var(--surface) 46%);
   border-color: var(--line-2);
 }
+/* last tile fills the trailing slot on the 3-col desktop grid */
+.bento__cell--wide { grid-column: span 2; }
+.bento__cell--wide p { max-width: 42ch; }
 .bento__cell--hero h3 { font-size: 1.7rem; margin-top: 18px; }
 .bento__cell--hero p { font-size: 15.5px; max-width: 30ch; }
 .bento__cta {
@@ -492,6 +495,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 900px) {
   .bento { grid-template-columns: 1fr 1fr; }
   .bento__cell--hero { grid-row: span 1; grid-column: span 2; min-height: auto; }
+  .bento__cell--wide { grid-column: span 1; }
 }
 @media (max-width: 560px) {
   .bento { grid-template-columns: 1fr; }
